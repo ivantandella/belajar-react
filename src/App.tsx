@@ -2,6 +2,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
+import Button from "./Button";
 // import Profile from "./Profile";
 // import Gallery from "./Gallery";
 // import "./App.css";
@@ -104,103 +105,118 @@ import viteLogo from "/vite.svg";
 // }
 
 // rendering list (map & filter)
-const people = [
-  {
-    id: 0,
-    name: "Creola Katherine Johnson",
-    profession: "mathematician",
-  },
-  {
-    id: 1,
-    name: "Mario José Molina-Pasquel Henríquez",
-    profession: "chemist",
-  },
-  {
-    id: 2,
-    name: "Mohammad Abdus Salam",
-    profession: "physicist",
-  },
-  {
-    id: 3,
-    name: "Percy Lavon Julian",
-    profession: "chemist",
-  },
-  {
-    id: 4,
-    name: "Subrahmanyan Chandrasekhar",
-    profession: "astrophysicist",
-  },
-];
+// const people = [
+//   {
+//     id: 0,
+//     name: "Creola Katherine Johnson",
+//     profession: "mathematician",
+//   },
+//   {
+//     id: 1,
+//     name: "Mario José Molina-Pasquel Henríquez",
+//     profession: "chemist",
+//   },
+//   {
+//     id: 2,
+//     name: "Mohammad Abdus Salam",
+//     profession: "physicist",
+//   },
+//   {
+//     id: 3,
+//     name: "Percy Lavon Julian",
+//     profession: "chemist",
+//   },
+//   {
+//     id: 4,
+//     name: "Subrahmanyan Chandrasekhar",
+//     profession: "astrophysicist",
+//   },
+// ];
 
-const recipes = [
-  {
-    id: "greek-salad",
-    name: "Greek Salad",
-    ingredients: ["tomatoes", "cucumber", "onion", "olives", "feta"],
-  },
-  {
-    id: "hawaiian-pizza",
-    name: "Hawaiian Pizza",
-    ingredients: [
-      "pizza crust",
-      "pizza sauce",
-      "mozzarella",
-      "ham",
-      "pineapple",
-    ],
-  },
-  {
-    id: "hummus",
-    name: "Hummus",
-    ingredients: ["chickpeas", "olive oil", "garlic cloves", "lemon", "tahini"],
-  },
-];
+// const recipes = [
+//   {
+//     id: "greek-salad",
+//     name: "Greek Salad",
+//     ingredients: ["tomatoes", "cucumber", "onion", "olives", "feta"],
+//   },
+//   {
+//     id: "hawaiian-pizza",
+//     name: "Hawaiian Pizza",
+//     ingredients: [
+//       "pizza crust",
+//       "pizza sauce",
+//       "mozzarella",
+//       "ham",
+//       "pineapple",
+//     ],
+//   },
+//   {
+//     id: "hummus",
+//     name: "Hummus",
+//     ingredients: ["chickpeas", "olive oil", "garlic cloves", "lemon", "tahini"],
+//   },
+// ];
 
-export default function List() {
-  const chemists = people.filter((person) => person.profession === "chemist");
-  const notChemists = people.filter(
-    (person) => person.profession !== "chemist"
-  );
+// export default function List() {
+//   const chemists = people.filter((person) => person.profession === "chemist");
+//   const notChemists = people.filter(
+//     (person) => person.profession !== "chemist"
+//   );
 
+//   return (
+//     <article>
+//       <h1>Chemists</h1>
+//       <ul>
+//         {chemists.map((person) => (
+//           <li key={person.id}>
+//             <p>
+//               <b>{person.name}:</b>
+//               {" " + person.profession + " "}
+//             </p>
+//           </li>
+//         ))}
+//       </ul>
+
+//       <h1>Not Chemists</h1>
+//       <ul>
+//         {notChemists.map((person) => (
+//           <li key={person.id}>
+//             <p>
+//               <b>{person.name}:</b>
+//               {" " + person.profession + " "}
+//             </p>
+//           </li>
+//         ))}
+//       </ul>
+
+//       <div>
+//         <h1>Recipes</h1>
+//         {recipes.map((recipe) => (
+//           <div key={recipe.id}>
+//             <h2>{recipe.name}</h2>
+//             <ul>
+//               {recipe.ingredients.map((ingredient) => (
+//                 <li key={ingredient}>{ingredient}</li>
+//               ))}
+//             </ul>
+//           </div>
+//         ))}
+//       </div>
+//     </article>
+//   );
+// }
+
+// event handler
+export default function Toolbar() {
   return (
-    <article>
-      <h1>Chemists</h1>
-      <ul>
-        {chemists.map((person) => (
-          <li key={person.id}>
-            <p>
-              <b>{person.name}:</b>
-              {" " + person.profession + " "}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <h1>Not Chemists</h1>
-      <ul>
-        {notChemists.map((person) => (
-          <li key={person.id}>
-            <p>
-              <b>{person.name}:</b>
-              {" " + person.profession + " "}
-            </p>
-          </li>
-        ))}
-      </ul>
-
-      <div>
-        <h1>Recipes</h1>
-        {recipes.map((recipe) => (
-          <div key={recipe.id}>
-            <h2>{recipe.name}</h2>
-            <ul>
-              {recipe.ingredients.map((ingredient) => (
-                <li key={ingredient}>{ingredient}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </article>
+    <div
+      className="Toolbar"
+      onClick={() => {
+        alert("You clicked on the toolbar!");
+      }}
+    >
+      <Button onClick={() => alert("Playing!")}>Play Movie</Button>
+      <Button onClick={() => alert("Uploading!")}>Upload Image</Button>
+    </div>
   );
 }
