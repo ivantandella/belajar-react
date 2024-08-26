@@ -1,50 +1,41 @@
-# React + TypeScript + Vite
+# Learn React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Create Component
+- komponen react = function js biasa, tapi nama nya kapital
+- komponen harus di export menggunakan `export default` di depan function
+- bisa menggunakan komponen di dalam komponen lain, tapi inisialisasi nya harus terpisah
 
-Currently, two official plugins are available:
+## 2. Import & Export Component
+- default: `export default function Button()` => `import Button from './Button'`
+- named: `export function Button()` => `import {Button} from './Button'`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 3. JSX
+- jsx hanya mengembalikan 1 komponen => bisa pakai `<div>`, atau `<> </>` (fragment)
+- semua tag harus ditutup
+- nama atribut menggunakan camelCase dan tidak boleh menggunakan nama dari sintaks js (eg `class` => `className`)
+- menuliskan javascript di jsx menggunakan `{ }`
+- pakai `{{ }}` untuk memasukkan objek atau cth jika ingin memasukkan style inline css
+- property style pada inline css ditulis dengan camelCase (`background-color` => `backgroundColor`)
 
-## Expanding the ESLint configuration
+## 4. Props
+- menulis props di function ({ }) sebagai argument, nama props dipisahkan dengan koma
+- bisa menentukan nilai bawaan ({ size = 100 })
+- menggunakan props children untuk menyisipkan konten ke dalam tag jsx,
+misal `<Card> <Avatar/> <Card/>` berarti harus buat `{children}` di dalam card
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 5. Conditional Rendering
+- if else / ternary => condition `?` true `:` false
+- operator AND => condition `&&` true
 
-- Configure the top-level `parserOptions` property like this:
+## 6. Rendering List
+- menggunakan `filter()` dan `map()`
+- setiap list harus memiliki key
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+
+
+
+
+
