@@ -160,3 +160,29 @@ function handleTitleChange(e) {
   });
 }
 ```
+
+## 10. Lifecycle
+
+![lifecycle](public/images/lifecycle.png)
+
+## 11. useEffect()
+
+- `import { useEffect } from 'react'`
+- `useEffect(setup, dependencies?)`
+- dapat digunakan untuk sinkronisasi dengan data dari local storage atau database
+
+###### dijalankan saat fase componentDidMount
+
+```javascript
+useEffect(() => {
+  setNumber(10);
+}, []);
+```
+
+###### dijalankan saat fase componentDidUpdate
+
+```javascript
+useEffect(() => {
+  setNumber(100);
+}, [number]);
+```
