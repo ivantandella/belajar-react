@@ -5,10 +5,16 @@
 - komponen react = function js biasa, tapi nama nya kapital
 - komponen harus di export
 - bisa menggunakan komponen di dalam komponen lain, tapi inisialisasi nya harus terpisah
+- setiap komponen hanya dapat me-return satu elemen, jika terdapat banyak elemen maka harus dibungkus menjadi satu
 
 ```javascript
 function Button() {
-  return <button>Submit<button/>
+  return (
+    <>
+      <h1>Hello World</h1>
+      <p>Selamat datang</p>
+    </>
+  );
 }
 
 export default Button;
