@@ -43,3 +43,20 @@
 - format nama event handler => `handleEvent` , cth `onClick` => `handleClick`
 - `e.stopPropagation()` menghentikan event handler tersemat pada tag di atasnya untuk terpanggil.
 - `e.preventDefault()` mencegah perilaku bawaan peramban untuk beberapa event yang memilikinya.
+
+## 8. useState()
+
+- `import { useState } from 'react';`
+- `const [number, setNumber] = useState();`
+- bisa menentukan nilai awal di dalam tanda kurung `()`
+- `number` dan `setNumber` selalu berpasangan
+- `number` untuk menyimpan data
+- `setNumber` adalah fungsi setter untuk mengatur nilai dari state
+
+## 9. useImmer()
+
+- `npm install use-immer`
+- `import { useImmer } from 'use-immer;'`
+- `const [number, updateNumber] = useImmer();`
+- dapat mempermudah jika berhadapan dengan data yang kompleks
+- misal ada objek di dalam objek, jika menggunakan state maka harus map dan spread berkali-kali, jika menggunakan immer maka dapat langsung mengakses objek paling dalam menggunakan `draft` (`draft` akan otomatis mengcopy data)
