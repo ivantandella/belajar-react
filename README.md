@@ -37,6 +37,59 @@
 - menggunakan `filter()` dan `map()`
 - setiap list harus memiliki key
 
+```javascript
+const people = [
+  {
+    id: 0,
+    name: "Creola Katherine Johnson",
+    profession: "mathematician",
+  },
+  {
+    id: 1,
+    name: "Mario José Molina-Pasquel Henríquez",
+    profession: "chemist",
+  },
+  {
+    id: 2,
+    name: "Mohammad Abdus Salam",
+    profession: "physicist",
+  },
+  {
+    id: 3,
+    name: "Percy Lavon Julian",
+    profession: "chemist",
+  },
+  {
+    id: 4,
+    name: "Subrahmanyan Chandrasekhar",
+    profession: "astrophysicist",
+  },
+];
+```
+
+###### filter
+
+```javascript
+const chemists = people.filter((person) => person.profession === "chemist");
+```
+
+###### map
+
+```javascript
+const listItems = chemists.map((person) => (
+  <li key={person.id}>
+    <p>
+      <b>{person.name}:</b>
+      {" " + person.profession + " "}
+    </p>
+  </li>
+));
+```
+
+```javascript
+return <ul>{listItems}</ul>;
+```
+
 ## 7. Event Handler
 
 - Event handler harus dioper, bukan dipanggil! `onClick={handleClick}`, bukan `onClick={handleClick()}`.
