@@ -3,13 +3,22 @@
 ## 1. Create Component
 
 - komponen react = function js biasa, tapi nama nya kapital
-- komponen harus di export menggunakan `export default` di depan function
+- komponen harus di export
 - bisa menggunakan komponen di dalam komponen lain, tapi inisialisasi nya harus terpisah
+
+```javascript
+function Button() {
+  return <button>Submit<button/>
+}
+
+export default Button;
+```
 
 ## 2. Import & Export Component
 
 - default: `export default function Button()` => `import Button from './Button'`
 - named: `export function Button()` => `import {Button} from './Button'`
+- satu file komponen dapat memiliki beberapa named export, namun hanya dapat memiliki satu export default
 
 ## 3. JSX
 
