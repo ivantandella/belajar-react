@@ -40,6 +40,7 @@
 ## 7. Event Handler
 
 - Event handler harus dioper, bukan dipanggil! `onClick={handleClick}`, bukan `onClick={handleClick()}`.
+- atau dapat menuliskan `onClick={() => handleClick()}`
 - format nama event handler => `handleEvent` , cth `onClick` => `handleClick`
 - `e.stopPropagation()` menghentikan event handler tersemat pada tag di atasnya untuk terpanggil.
 - `e.preventDefault()` mencegah perilaku bawaan peramban untuk beberapa event yang memilikinya.
@@ -83,7 +84,7 @@ const [person, updatePerson] = useImmer({
 });
 ```
 
-######useState
+###### useState
 
 ```javascript
 function handleTitleChange(e) {
@@ -97,7 +98,7 @@ function handleTitleChange(e) {
 }
 ```
 
-######useImmer
+###### useImmer
 
 ```javascript
 function handleTitleChange(e) {
