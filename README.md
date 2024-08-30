@@ -53,10 +53,56 @@
 - `number` untuk menyimpan data
 - `setNumber` adalah fungsi setter untuk mengatur nilai dari state
 
+```javascript
+setNumber(number + 1);
+```
+
 ## 9. useImmer()
 
 - `npm install use-immer`
 - `import { useImmer } from 'use-immer;'`
 - `const [number, updateNumber] = useImmer();`
 - dapat mempermudah jika berhadapan dengan data yang kompleks
-- misal ada objek di dalam objek, jika menggunakan state maka harus map dan spread berkali-kali, jika menggunakan immer maka dapat langsung mengakses objek paling dalam menggunakan `draft` (`draft` akan otomatis mengcopy data)
+
+```javascript
+updatePerson((draft) => {
+  draft.name = e.target.value;
+});
+```
+
+misal ada objek di dalam objek, jika menggunakan state maka harus spread berkali-kali, jika menggunakan immer maka dapat langsung mengakses objek paling dalam menggunakan `draft` (`draft` akan otomatis mengcopy data)
+
+```javascript
+const [person, updatePerson] = useImmer({
+  name: "Niki de Saint Phalle",
+  artwork: {
+    title: "Blue Nana",
+    city: "Hamburg",
+    image: "https://i.imgur.com/Sd1AgUOm.jpg",
+  },
+});
+```
+
+######useState
+
+```javascript
+function handleTitleChange(e) {
+  setPerson({
+    ...person,
+    artwork: {
+      ...person.artwork,
+      title: e.target.value,
+    },
+  });
+}
+```
+
+######useImmer
+
+```javascript
+function handleTitleChange(e) {
+  updatePerson((draft) => {
+    draft.artwork.title = e.target.value;
+  });
+}
+```
