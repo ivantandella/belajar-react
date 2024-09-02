@@ -201,3 +201,37 @@ useEffect(() => {
   setNumber(100);
 }, [number]);
 ```
+
+## 12. Context
+
+- dapat digunakan untuk mengatasi masalah props drilling, sehingga tidak perlu mengoper props berkali-kali hingga komponen paling dalam
+- provider: parent, consumer: child (yang membutuhkan data/props)
+- buat file context
+
+```javascript
+import { createContext } from "react";
+
+export const LevelContext = createContext(1);
+```
+
+- gunakan context pada component yang membutuhkan
+
+```javascript
+const level = useContext(LevelContext);
+```
+
+- sediakan context di parent/provider
+
+```javascript
+import { LevelContext } from "./LevelContext.js";
+
+export default function Section({ level, children }) {
+  return (
+    <section className="section">
+      <LevelContext.Provider value={level}>{children}</LevelContext.Provider>
+    </section>
+  );
+}
+```
+
+- sekarang semua komponen child dari `Section` bisa mengakses nilai dari props `level` tanpa perlu mengirimkan berulang-ulang
