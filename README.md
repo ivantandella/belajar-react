@@ -113,7 +113,7 @@ return <ul>{listItems}</ul>;
 - `e.stopPropagation()` menghentikan event handler tersemat pada tag di atasnya untuk terpanggil.
 - `e.preventDefault()` mencegah perilaku bawaan peramban untuk beberapa event yang memilikinya.
 
-## 8. useState()
+## 8. State
 
 - `import { useState } from 'react';`
 - `const [number, setNumber] = useState();`
@@ -126,7 +126,7 @@ return <ul>{listItems}</ul>;
 setNumber(number + 1);
 ```
 
-## 9. useImmer()
+## 9. Immer
 
 - `npm install use-immer`
 - `import { useImmer } from 'use-immer;'`
@@ -176,11 +176,11 @@ function handleTitleChange(e) {
 }
 ```
 
-## 10. Lifecycle
+## 10. Component Lifecycle
 
 ![lifecycle](public/images/lifecycle.png)
 
-## 11. useEffect()
+## 11. Effect
 
 - `import { useEffect } from 'react'`
 - `useEffect(setup, dependencies?)`
@@ -236,7 +236,7 @@ export default function Section({ level, children }) {
 
 - sekarang semua komponen child dari `Section` bisa mengakses nilai dari props `level` tanpa perlu mengirimkan berulang-ulang
 
-## 13. useReducer()
+## 13. Reducer
 
 - bertindak seperti `useState()`
 - dapat digunakan untuk menggabungkan logika state
@@ -291,3 +291,14 @@ import { useReducer } from "react";
 
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 ```
+
+## 14. Ref
+
+```javascript
+import { useRef } from "react";
+
+const ref = useRef(0);
+```
+
+- perubahan nilai pada ref tidak akan memicu re-render
+- dapat mengakses nilai ref menggunakan ref.current
