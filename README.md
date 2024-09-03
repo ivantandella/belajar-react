@@ -235,3 +235,59 @@ export default function Section({ level, children }) {
 ```
 
 - sekarang semua komponen child dari `Section` bisa mengakses nilai dari props `level` tanpa perlu mengirimkan berulang-ulang
+
+## 13. useReducer()
+
+- bertindak seperti `useState()`
+- dapat digunakan untuk menggabungkan logika state
+- object di dalam `dispatch` disebut `action`
+- fungsi reducer menerima initial state dan action sebagai argumen, dan mengembalikan nilai state berikutnya
+
+```javascript
+// dengan useState
+function handleAddTask(text) {
+  setTasks([
+    ...tasks,
+    {
+      id: nextId++,
+      text: text,
+      done: false,
+    },
+  ]);
+}
+
+// dengan useReducer
+function handleAddTask(text) {
+  dispatch({
+    type: "added",
+    id: nextId++,
+    text: text,
+  });
+}
+
+function tasksReducer(tasks, action) {
+  switch (action.type) {
+    case "added": {
+      return [
+        ...tasks,
+        {
+          id: action.id,
+          text: action.text,
+          done: false,
+        },
+      ];
+    }
+    default: {
+      return tasks;
+    }
+  }
+}
+```
+
+- lalu panggil reducer di komponen
+
+```javascript
+import { useReducer } from "react";
+
+const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+```
