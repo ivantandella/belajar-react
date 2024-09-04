@@ -292,7 +292,43 @@ import { useReducer } from "react";
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 ```
 
-## 14. Ref
+## 14. Immer Reducer
+
+```javascript
+// dengan useImmer
+function handleAddTask(text) {
+  updateTask((draft) => {
+    draft.push({
+      id: nextId++,
+      text: text,
+      done: false,
+    });
+  });
+}
+
+// dengan useImmerReducer
+function handleAddTask(text) {
+  dispatch({
+    type: "added",
+    id: nextId++,
+    text: text,
+  });
+}
+
+function tasksImmerReducer(draft, action) {
+  switch (action.type) {
+    case "added": {
+      draft.push({ id: action.id, text: action.text, done: false });
+      break;
+    }
+    default: {
+      return draft;
+    }
+  }
+}
+```
+
+## 15. Ref
 
 ```javascript
 import { useRef } from "react";
